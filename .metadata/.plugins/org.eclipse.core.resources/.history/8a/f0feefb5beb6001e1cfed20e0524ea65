@@ -1,0 +1,45 @@
+package com.Core.Java.Collectoin.Lalit.map;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import sun.java2d.opengl.WGLSurfaceData.WGLVSyncOffScreenSurfaceData;
+
+public class HashMapByAmarjeet {
+	public static void main(String[] args) {
+		HashMap<Integer, String> hm = new HashMap<>();
+		hm.put(101, "Lalit");
+		hm.put(102, "Amarjeet");
+		hm.put(103, "Rajish");
+		hm.put(104, "Abhay");
+		hm.put(105, "Shashi");
+		hm.put(106, "Lalit");
+		System.out.println(hm);
+		System.out.println(hm.size());
+		System.out.println(hm.entrySet());
+		System.out.println(hm.get(101));
+		System.out.println(hm.values());
+		System.out.println("keyset"+hm.keySet());
+		System.out.println(hm.replace(101, "lalit kumar"));
+		System.out.println(hm);
+		
+		System.out.println("print only keys");
+		for(Integer obj:hm.keySet())
+		{
+			System.out.println(obj);
+		}
+		
+		System.out.println("print only value");
+		for(String str:hm.values())
+		{
+			System.out.println(str);
+		}
+		
+		
+		
+		
+
+	}
+
+}

@@ -1,0 +1,26 @@
+package com.spring.core.practical.constructor.injection;
+
+public class Student {
+
+	private String name;
+	private String city;
+	private String company;
+
+	public Student(String name, String city, String company) {
+		super();
+		this.name = name;
+		this.city = city;
+		this.company = company;
+	}
+
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", city=" + city + ", company=" + company + "]";
+	}
+
+}

@@ -1,0 +1,7 @@
+INDEX VERSION 1.131
+C:\Users\lalit\Desktop\MasterJavaWorkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3249722599.index
+\amarjeetProject\src\main\resources
+C:\Users\lalit\Desktop\MasterJavaWorkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2389236961.index
+\NoteTaker\src\main\java
+C:\Users\lalit\Desktop\MasterJavaWorkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3913414311.index
+\NoteTaker\src\main\java

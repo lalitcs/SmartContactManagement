@@ -1,0 +1,25 @@
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@SpringBootApplication
+public class HelloWorldApplication {
+	@GetMapping("/getName")
+	String getNmae()
+	{
+		return "I am lalit from Bihar";
+	}
+	
+	public static void main(String[] args) {
+		SpringApplication.run(HelloWorldApplication.class, args);
+		System.out.println("Hello world using spring boot project");
+		System.out.println("lalit");
+		System.out.println("amarjeet");
+		System.out.println("aasdf");
+		
+		
+	}
+
+}

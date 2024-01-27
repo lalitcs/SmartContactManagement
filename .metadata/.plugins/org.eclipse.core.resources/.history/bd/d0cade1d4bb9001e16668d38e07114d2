@@ -1,0 +1,27 @@
+package com.hibernate.pratical.lalit;
+
+import org.hibernate.Session;
+import org.hibernate.cfg.Configuration;
+
+public class FetchDataFromDbUsingHibernate {
+	public static void main(String[] args) {
+
+		Configuration cfg = new Configuration();
+		cfg.configure("hibernate.cfg.xml");
+		org.hibernate.SessionFactory factory = cfg.buildSessionFactory();
+		System.out.println(factory);
+
+		// fetch data from db using get()
+
+		Session s1 = factory.openSession();
+		Student s2 = s1.get(Student.class, 2);
+		System.out.println("Id : " + s2.getId());
+		System.out.println("Name : " + s2.getName());
+		System.out.println("City : " + s2.getCity());
+		System.out.println("Company :" + s2.getCompany());
+		System.out.println("Salary :" + s2.getSalary());
+
+		s1.close();
+
+	}
+}

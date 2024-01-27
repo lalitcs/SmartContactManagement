@@ -1,0 +1,17 @@
+package com.Core.Java.Collectoin.Lalit.map;
+
+import java.util.HashMap;
+
+public class HashMapByAmarjeet {
+	public static void main(String[] args) {
+		HashMap<Integer,String> hm=new HashMap<>();
+		hm.put(101,"Lalit");
+		hm.put(102,"Amarjeet");
+		hm.put(103,"Rajish");
+		hm.put(104,"Abhay");
+		hm.put(105,"Shashi");
+		hm.put(106,"Lalit");
+		System.out.println(hm);
+	}
+
+}

@@ -1,0 +1,30 @@
+package com.spring.core;
+
+public class University {
+	private int enrollment;
+	private String universityName;
+	public int getEnrollment() {
+		return enrollment;
+	}
+	public void setEnrollment(int enrollment) {
+		this.enrollment = enrollment;
+	}
+	public String getUniversityName() {
+		return universityName;
+	}
+	public void setUniversityName(String universityName) {
+		this.universityName = universityName;
+	}
+	public University(int enrollment, String universityName) {
+		super();
+		this.enrollment = enrollment;
+		this.universityName = universityName;
+	}
+	public University() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+}

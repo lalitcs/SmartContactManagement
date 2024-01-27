@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+
+	<bean name="address1"
+		class="com.spring.core.practical.autowiring.xml.Address"
+		p:city="muzaffarpur" p:country="india" />
+		
+		
+	<bean name="address1"
+		class="com.spring.core.practical.autowiring.xml.Address"
+		p:city="patna" p:country="india" />
+		
+
+	<!-- <bean name="StudentBean" class="com.spring.core.practical.autowiring.xml.Student" 
+		p:id="101 " p:name="amarjeet" p:college="ies college" autowire="byName" /> -->
+
+	<!-- <bean name="StudentBean"
+		class="com.spring.core.practical.autowiring.xml.Student" p:id="101 "
+		p:name="amarjeet" p:college="ies college" autowire="byType" /> -->
+		
+		
+</beans>

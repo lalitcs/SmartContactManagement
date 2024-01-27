@@ -1,0 +1,95 @@
+package com.Bluejay.Delivery.ToDo;
+
+import org.apache.poi.ss.usermodel.*;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.*;
+
+public class WorkForFourteenHoursInSingleShift {
+
+	public static void main(String[] args) throws Exception {
+
+		FileInputStream file = new FileInputStream(new File("C:/Users/lalit/Downloads/Assignment_Timecard.xlsx"));
+		Workbook workbook = WorkbookFactory.create(file);
+
+		Sheet sheet = workbook.getSheetAt(0);
+
+		analyzeEmployeeData(sheet);
+
+		workbook.close();
+	}
+
+	private static void analyzeEmployeeData(Sheet sheet) {
+
+		int nameColumnIndex = 7;
+		int positionColumnIndex = 1;
+		int dateColumnIndex = 2;
+		int hoursWorkedColumnIndex = 3;
+
+		Iterator<Row> rowIterator = sheet.iterator();
+
+		if (rowIterator.hasNext()) {
+			rowIterator.next();
+		}
+
+		Map<String, Set<String>> employeeConsecutiveDaysMap = new HashMap<>();
+		Map<String, Double> employeePreviousHoursMap = new HashMap<>();
+
+		while (rowIterator.hasNext()) {
+			Row row = rowIterator.next();
+
+			String name = getStringValue(row.getCell(nameColumnIndex));
+			String position = getStringValue(row.getCell(positionColumnIndex));
+			String date = getStringValue(row.getCell(dateColumnIndex));
+			double hoursWorked = getNumericValue(row.getCell(hoursWorkedColumnIndex));
+
+			System.out.println("Name: " + name + ", Position: " + position);
+
+			Set<String> consecutiveDaysSet = employeeConsecutiveDaysMap.computeIfAbsent(name, k -> new HashSet<>());
+			if (consecutiveDaysSet.contains(date)) {
+				System.out.println(name + " worked for 7 consecutive days.");
+			} else {
+				consecutiveDaysSet.add(date);
+			}
+
+			Double previousHours = employeePreviousHoursMap.get(name);
+			if (previousHours != null && !consecutiveDaysSet.contains(date)) {
+				double timeBetweenShifts = calculateTimeBetweenShifts(previousHours, hoursWorked);
+				if (timeBetweenShifts > 1 && timeBetweenShifts < 10) {
+					System.out.println(name + " has less than 10 hours between shifts but more than 1 hour.");
+				}
+			}
+
+			if (hoursWorked > 14) {
+				System.out.println(name + " has worked for more than 14 hours in a single shift.");
+			}
+
+			employeePreviousHoursMap.put(name, hoursWorked);
+		}
+	}
+
+	private static String getStringValue(Cell cell) {
+		if (cell != null) {
+			if (cell.getCellType() == CellType.STRING) {
+				return cell.getStringCellValue();
+			} else if (cell.getCellType() == CellType.NUMERIC) {
+				return String.valueOf(cell.getNumericCellValue());
+			}
+		}
+		return "";
+	}
+
+	private static double getNumericValue(Cell cell) {
+		if (cell != null && cell.getCellType() == CellType.NUMERIC) {
+			return cell.getNumericCellValue();
+		}
+		return 0;
+	}
+
+	private static double calculateTimeBetweenShifts(double previousHours, double currentHours) {
+
+		return Math.abs(currentHours - previousHours);
+	}
+}

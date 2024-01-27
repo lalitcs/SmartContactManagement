@@ -1,0 +1,99 @@
+package com.Bluejay.Delivery.ToDo;
+
+import org.apache.poi.ss.usermodel.*;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.*;
+
+public class WorkForTenHoursBetweenShiftButGraterThanOneHours {
+
+	public static void main(String[] args) throws Exception {
+
+		// Step 1: Load the Excel file
+		FileInputStream file = new FileInputStream(new File("C:/Users/lalit/Downloads/Assignment_Timecard.xlsx"));
+		Workbook workbook = WorkbookFactory.create(file);
+
+		// Step 2: Get the first sheet
+		Sheet sheet = workbook.getSheetAt(0);
+
+		// Step 3: Process the data and print results
+		analyzeEmployeeData(sheet);
+
+		// Step 4: Close the workbook
+		workbook.close();
+	}
+
+	private static void analyzeEmployeeData(Sheet sheet) {
+		// Assuming the structure of the Excel sheet
+		int nameColumnIndex = 7;
+		int positionColumnIndex = 1;
+		int dateColumnIndex = 2;
+		int hoursWorkedColumnIndex = 3;
+
+		Iterator<Row> rowIterator = sheet.iterator();
+
+		// Skip the header row if it exists
+		if (rowIterator.hasNext()) {
+			rowIterator.next();
+		}
+
+		// Storage for consecutive days and shifts
+		Map<String, Set<String>> employeeConsecutiveDaysMap = new HashMap<>();
+		Map<String, Double> employeePreviousHoursMap = new HashMap<>();
+
+		// Process the data
+		while (rowIterator.hasNext()) {
+			Row row = rowIterator.next();
+
+			// Get data from the row
+			String name = getStringValue(row.getCell(nameColumnIndex));
+			String date = getStringValue(row.getCell(dateColumnIndex));
+			double hoursWorked = getNumericValue(row.getCell(hoursWorkedColumnIndex));
+
+			// Print the basic details
+			System.out.println("Name: " + name);
+
+			// Check time between shifts
+			Set<String> consecutiveDaysSet = employeeConsecutiveDaysMap.computeIfAbsent(name, k -> new HashSet<>());
+			Double previousHours = employeePreviousHoursMap.get(name);
+
+			if (previousHours != null && !consecutiveDaysSet.contains(date)) {
+				double timeBetweenShifts = calculateTimeBetweenShifts(previousHours, hoursWorked);
+
+				if (timeBetweenShifts > 1 && timeBetweenShifts < 10) {
+					System.out.println(name + " has less than 10 hours between shifts but more than 1 hour.");
+				}
+			}
+
+			// Update previous hours worked
+			consecutiveDaysSet.add(date);
+			employeePreviousHoursMap.put(name, hoursWorked);
+		}
+	}
+
+	private static String getStringValue(Cell cell) {
+		if (cell != null) {
+			if (cell.getCellType() == CellType.STRING) {
+				return cell.getStringCellValue();
+			} else if (cell.getCellType() == CellType.NUMERIC) {
+				return String.valueOf(cell.getNumericCellValue());
+			}
+		}
+		return "";
+	}
+
+	private static double getNumericValue(Cell cell) {
+		if (cell != null && cell.getCellType() == CellType.NUMERIC) {
+			return cell.getNumericCellValue();
+		}
+		return 0;
+	}
+
+	private static double calculateTimeBetweenShifts(double previousHours, double currentHours) {
+		// Implement the logic to calculate the time between shifts (in hours)
+		// This is just a placeholder, you need to replace it with the actual logic
+		return Math.abs(currentHours - previousHours);
+	}
+}

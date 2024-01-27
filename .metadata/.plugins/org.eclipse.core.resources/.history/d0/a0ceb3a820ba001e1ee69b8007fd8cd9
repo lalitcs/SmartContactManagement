@@ -1,0 +1,23 @@
+package com.hibernate.pratical.lalit;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+public class DeleteFromTableUsingHibernate {
+	public static void main(String[] args) {
+		Configuration cfg = new Configuration();
+		cfg.configure("hibernate.cfg.xml");
+		org.hibernate.SessionFactory factory = cfg.buildSessionFactory();
+		System.out.println(factory);
+
+		Session s3 = factory.openSession();
+		Transaction tx = s3.beginTransaction();
+		Query query = s3.createQuery("delete from student where id=1");
+		
+		query.executeUpdate();
+		tx.commit();
+		s3.save(query);
+	}
+}

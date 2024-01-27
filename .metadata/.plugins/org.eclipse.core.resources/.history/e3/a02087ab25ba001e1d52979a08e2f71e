@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- Value as tag example -->
+	<bean class="com.spring.core.Student"
+		name="Student1">
+		<property name="studentID">
+			<value>15</value>
+		</property>
+
+		<property name="studentName">
+			<value>Amarjeet Singh</value>
+		</property>
+		
+		<property name="studentName">
+			<value>Ies college Bhopal</value>
+		</property>
+
+		<property name="studentCity">
+			<value>Bihar</value>
+		</property>
+	</bean> 
+	
+
+
+</beans>

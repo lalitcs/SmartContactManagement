@@ -1,0 +1,50 @@
+package com.hibernate.pratical.lalit;
+
+import java.sql.*;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.mysql.cj.xdevapi.SessionFactory;
+
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+    
+		/*
+		 * org.hibernate.SessionFactory factory=new
+		 * Configuration().configure().buildSessionFactory();
+		 * System.out.println(factory);
+		 */
+    	Configuration cfg=new Configuration();
+    	cfg.configure("hibernate.cfg.xml");
+    	org.hibernate.SessionFactory factory =cfg.buildSessionFactory();
+    	System.out.println(factory);
+    	
+    	Student st=new Student();
+    	
+    	st.setName("Abhay");
+    	st.setCity("Bangalore");
+    	st.setCompany("IQVIA");
+    	st.setSalary(10);
+    	
+    	
+    	Address add=new Address();
+    	add.setName("Lalit");
+    	add.setStreet("Sakari");
+    	add.setCity("Patna");
+    	add.setAddedDate((java.sql.Date) new Date(0));
+   
+    	
+    	
+    	Session s=factory.openSession();
+    	Transaction tx=s.beginTransaction();
+    	s.save(st);
+    	s.save(add);
+    	tx.commit();
+    	s.close();
+    }
+}

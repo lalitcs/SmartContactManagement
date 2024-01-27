@@ -1,0 +1,72 @@
+package com.example.demo;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.SecurityFilterChain;
+
+import java.util.Collections;
+
+@Configuration
+@EnableWebSecurity
+public class MyConfigSecurity {
+
+	// some resource are accessible directly and some resource accessible by
+	// security
+	/*
+	 * @Bean public SecurityFilterChain SecurityFilterChain(HttpSecurity http)
+	 * throws Exception { http .authorizeRequests()
+	 * .requestMatchers("/about").authenticated()
+	 * .requestMatchers("/hi").authenticated()
+	 * .requestMatchers("/ha").authenticated()
+	 * .requestMatchers("/haa").authenticated()
+	 * .requestMatchers("/home").permitAll().and().formLogin().and().httpBasic();
+	 * 
+	 * return http.build();
+	 */
+
+	// deny all the http request
+	/*
+	 * @Bean public SecurityFilterChain SecurityFilterChain(HttpSecurity http)
+	 * throws Exception {
+	 * http.authorizeRequests().anyRequest().denyAll().and().httpBasic();
+	 * 
+	 * return http.build();
+	 * 
+	 * }
+	 */
+
+	// in this case user can access only user resource not admin resource
+	/*
+	 * @Bean public SecurityFilterChain SecurityFilterChain(HttpSecurity http)
+	 * throws Exception { http .authorizeRequests()
+	 * .requestMatchers("/user/**").permitAll()
+	 * .requestMatchers("/admin/**").denyAll() .and().httpBasic();
+	 * 
+	 * 
+	 * return http.build();
+	 */
+
+	@Bean
+	public SecurityFilterChain SecurityFilterChain(HttpSecurity http) throws Exception {
+		http.authorizeRequests().requestMatchers("/user/home").permitAll().requestMatchers("/user/dashboard").denyAll()
+				.and().httpBasic();
+		return http.build();
+	}
+
+	@Bean
+	public  MyConfigSecurity(AuthenticationManagerBuilder authenticationMgr) throws Exception {
+		authenticationMgr.inMemoryAuthentication().withUser("amarjeet").password("user@123").authorities("user").and()
+				.withUser("lalit").password("admin@123").authorities("admin").and()
+				.passwordEncoder(NoOpPasswordEncoder.getInstance());
+	}
+
+}

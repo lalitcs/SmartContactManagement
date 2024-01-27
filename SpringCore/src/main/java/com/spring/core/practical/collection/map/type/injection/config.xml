@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean class="com.spring.core.practical.collection.map.type.injection.Employee" name="emp1">
+		<property name="name" value="Rajnish" />
+
+
+		<property name="phones">
+			<list>
+
+				<value>88888888</value>
+				<value>77777777</value>
+				<value>66666666</value>
+				<value>null</value>
+
+			</list>
+		</property>
+
+		<property name="address">
+			<set>
+
+				<value>bopal</value>
+				<value>delhi</value>
+				<value>bihar</value>
+
+			</set>
+		</property>
+
+		<property name="cources">
+			<map>
+				<entry key="Java" value="2 months" />
+				<entry key="Python" value="3 months" />
+				<entry key="SQL" value="=4 months" />
+			</map>
+		</property>
+	</bean>
+</beans>

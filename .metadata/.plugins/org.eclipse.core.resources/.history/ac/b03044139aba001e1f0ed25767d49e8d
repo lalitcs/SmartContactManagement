@@ -1,0 +1,16 @@
+package com.lombok.WithLombok;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	Amarjeet am=new Amarjeet();
+    
+    
+        System.out.println( "Hello World!" );
+    }
+}

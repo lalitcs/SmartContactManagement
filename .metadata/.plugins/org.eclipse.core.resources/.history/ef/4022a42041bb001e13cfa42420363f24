@@ -1,0 +1,29 @@
+package com.spring.core.practical.constructor.injection;
+
+public class Student {
+
+	private String name;
+	private String city;
+	private String company;
+
+	public Student(String name, String city, String company) {
+		System.out.println("inside construcot");
+		this.name = name;
+		this.city = city;
+		this.company = company;
+	}
+
+	public Student() {
+	}
+
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", city=" + city + ", company=" + company + "]";
+	}
+
+//	void disp() {
+//		System.out.println(name + ":" + city + ":" + company);
+//	}
+	
+
+}

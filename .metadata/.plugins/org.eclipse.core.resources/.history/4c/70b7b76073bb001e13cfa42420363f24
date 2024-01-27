@@ -1,0 +1,5 @@
+package com.spring.core.practical.lifecycleUsingInterface;
+
+public class Student {
+
+}

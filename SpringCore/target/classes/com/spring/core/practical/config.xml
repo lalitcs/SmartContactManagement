@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+   <!-- using value as attribute -->
+    <bean name="lalit" class="com.spring.core.practical.Student">
+    	<property name="id" value="101"/>
+    	<property name="name" value="lalit kuamar"/>
+    	<property name="city" value="bangalore"/>
+    	<property name="company" value="tcs"/>
+    	<property name="salary" value="20000"/>
+    	
+    </bean>
+    
+    <!-- using value as tag -->
+     <bean name="lalit1" class="com.spring.core.practical.Student">
+    	<property name="id" value="102"></property>
+    	<property name="name" value="Amarjeet kuamar"></property>
+    	<property name="city" value="bangalore"></property>
+    	<property name="company" value="edifecs"></property>
+    	<property name="salary" value="100000"></property>
+    	
+    </bean>
+    
+    <!-- using p schema -->
+     <bean name="lalit2" class="com.spring.core.practical.Student" p:id="103" p:name="vishwjeet kumar" p:city="pune" p:company="Mahindra" p:salary="10000"/>
+</beans>

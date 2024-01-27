@@ -1,0 +1,5 @@
+package com.spring.core.practical.autowiring;
+
+public class Address {
+
+}

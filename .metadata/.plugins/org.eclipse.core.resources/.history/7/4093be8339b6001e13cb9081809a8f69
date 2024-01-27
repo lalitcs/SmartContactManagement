@@ -1,0 +1,15 @@
+package com.Core.Java.Collectoin.Lalit.set;
+
+import java.util.TreeSet;
+
+public class TreeSetByAmarjeet {
+	public static void main(String[] args) {
+		TreeSet t=new TreeSet<>();
+		t.add(10);
+		t.add(10);
+		t.add(20);
+		t.add(30);
+		t.add(null);
+		System.out.println(t);
+	}
+}

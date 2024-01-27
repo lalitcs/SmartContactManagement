@@ -1,0 +1,32 @@
+package com.hibernate.pratical.lalit;
+
+import org.hibernate.cfg.Configuration;
+
+import com.mysql.cj.xdevapi.SessionFactory;
+
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+    
+		/*
+		 * org.hibernate.SessionFactory factory=new
+		 * Configuration().configure().buildSessionFactory();
+		 * System.out.println(factory);
+		 */
+    	Configuration cfg=new Configuration();
+    	cfg.configure("hibernate.cfg.xml");
+    	org.hibernate.SessionFactory factory =cfg.buildSessionFactory();
+    	System.out.println(factory);
+    	
+    	Student st=new Student();
+    	st.setId(101);
+    	st.setName("Lalit");
+    	st.setCity("Patna");
+    	st.setCompany("TCS");
+    	st.setSalary(20000);
+    	
+    	System.out.println(st.getCity());
+    }
+}

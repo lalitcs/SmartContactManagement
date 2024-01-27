@@ -1,0 +1,19 @@
+package com.Core.Java.Collectoin.Lalit.set;
+
+import java.util.LinkedHashSet;
+
+public class LinkedHashSetByAmarjeet {
+	public static void main(String[] args) {
+		LinkedHashSet l=new LinkedHashSet<>();
+		l.add(100);
+		l.add(100);
+		l.add(50);
+		l.add(40);
+		l.add(90);
+		l.add(30);
+		
+		System.out.println(l);
+		
+	}
+
+}

@@ -1,0 +1,66 @@
+package com.working.amarjeet.Todo;
+
+import org.apache.poi.ss.usermodel.*;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.*;
+
+public class WorkedForSevenConsecutiveDays {
+
+	public static void main(String[] args) throws Exception {
+
+		FileInputStream file = new FileInputStream(new File("C:/Users/lalit/Downloads/Assignment_Timecard.xlsx"));
+		Workbook workbook = WorkbookFactory.create(file);
+
+		Sheet sheet = workbook.getSheetAt(0);
+
+		analyzeEmployeeData(sheet);
+
+		workbook.close();
+	}
+
+	private static void analyzeEmployeeData(Sheet sheet) {
+
+		int nameColumnIndex = 7;
+		int positionColumnIndex = 1;
+		int dateColumnIndex = 2;
+		int hoursWorkedColumnIndex = 3;
+
+		Iterator<Row> rowIterator = sheet.iterator();
+
+		if (rowIterator.hasNext()) {
+			rowIterator.next();
+		}
+
+		Map<String, Set<String>> employeeConsecutiveDaysMap = new HashMap<>();
+
+		while (rowIterator.hasNext()) {
+			Row row = rowIterator.next();
+
+			String name = getStringValue(row.getCell(nameColumnIndex));
+			String date = getStringValue(row.getCell(dateColumnIndex));
+
+			System.out.println("Name: " + name);
+
+			Set<String> consecutiveDaysSet = employeeConsecutiveDaysMap.computeIfAbsent(name, k -> new HashSet<>());
+			consecutiveDaysSet.add(date);
+
+			if (consecutiveDaysSet.size() >= 7) {
+				System.out.println(name + " has worked for 7 consecutive days.");
+			}
+		}
+	}
+
+	private static String getStringValue(Cell cell) {
+		if (cell != null) {
+			if (cell.getCellType() == CellType.STRING) {
+				return cell.getStringCellValue();
+			} else if (cell.getCellType() == CellType.NUMERIC) {
+				return String.valueOf(cell.getNumericCellValue());
+			}
+		}
+		return "";
+	}
+}

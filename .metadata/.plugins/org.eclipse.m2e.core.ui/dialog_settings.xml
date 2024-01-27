@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\lalit\Downloads\demo"/>
+			<item value="C:\Users\lalit\Desktop\clone\SmartContactManagerProject\Smart Contact Manager Source Code"/>
+			<item value="C:\Users\lalit\Desktop\clone\Notebook_web_app"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="C:\Users\lalit\Desktop\MasterJavaWorkspace\JdbcLalitPractical\src\main\java\com\jdbc\lalit\practical\App.java"/>
+			<item value="C:\Users\lalit\Desktop\MasterJavaWorkspace\JDBC_Example\src\main\java\com\Lalit\JBDC\Practical\JDBC_Example\ConnectJBCD.java"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="internal"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+			<item value="com.working.amarjeet.Todo"/>
+			<item value="com.lombok.WithLombok"/>
+			<item value="com.spring.core"/>
+			<item value="com.amarjeet.amarjeetProject"/>
+			<item value="com.hibernate.pratical.lalit"/>
+			<item value="com.Hibernate_exam"/>
+			<item value="com.jdbc.lalit.practical"/>
+			<item value="com.spring.core.practical"/>
+		</list>
+		<list key="groupId">
+			<item value="com.working.amarjeet"/>
+			<item value="com.lombok"/>
+			<item value="com.lalit.spring.core"/>
+			<item value="com.amarjeet"/>
+			<item value="com.Hibernate_Practical"/>
+			<item value="com.jdbc.lalit"/>
+			<item value="com.spring.core.practical"/>
+		</list>
+		<list key="artifactId">
+			<item value="Todo"/>
+			<item value="WithLombok"/>
+			<item value="SpringCorePracticalByLalit"/>
+			<item value="amarjeetProject"/>
+			<item value="HibernatePractical"/>
+			<item value="Hibernate_Practical"/>
+			<item value="JdbcLalitPractical"/>
+			<item value="SpringCorePractical"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+</section>

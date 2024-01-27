@@ -1,0 +1,5 @@
+package com.spring.core.practical.scope;
+
+public class Student {
+
+}

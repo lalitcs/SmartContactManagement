@@ -1,0 +1,53 @@
+package com.hibernate.pratical.lalit;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+public class InsertMultipleRecordUsingHibernate {
+public static void main(String[] args) {
+	
+	Configuration cfg = new Configuration();
+	cfg.configure("hibernate.cfg.xml");
+	org.hibernate.SessionFactory factory = cfg.buildSessionFactory();
+	System.out.println(factory);
+	
+	Session s3 = factory.openSession();
+	Transaction tx = s3.beginTransaction();
+
+
+	try {
+		
+	    // Insert multiple records using HQL
+	    String hql = "insert into Student(name, address, salary, company) " +
+	                 "values(:name1, :address1, :salary1, :company1), " +
+	                 "(:name2, :address2, :salary2, :company2), " +
+	                 "(:name3, :address3, :salary3, :company3)";
+
+	    Query query = s3.createQuery(hql);
+
+	    // Set parameter values for each record
+	    query.setParameter("name1", "Amarjeet");
+	    query.setParameter("address1", "Patna");
+	    query.setParameter("salary1", 3000);
+	    query.setParameter("company1", "Edifecs");
+
+	    query.setParameter("name2", "John");
+	    query.setParameter("address2", "New York");
+	    query.setParameter("salary2", 4000);
+	    query.setParameter("company2", "XYZ Corp");
+
+	    query.setParameter("name3", "Jane");
+	    query.setParameter("address3", "San Francisco");
+	    query.setParameter("salary3", 3500);
+	    query.setParameter("company3", "ABC Ltd");
+
+	    int result = query.executeUpdate();
+
+	    tx.commit();
+		
+	    s3.close();
+
+
+

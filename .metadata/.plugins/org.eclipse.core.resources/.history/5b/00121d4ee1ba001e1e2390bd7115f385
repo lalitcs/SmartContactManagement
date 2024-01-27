@@ -1,0 +1,5 @@
+package com.spring.jdbc.practical;
+
+public class Student {
+
+}

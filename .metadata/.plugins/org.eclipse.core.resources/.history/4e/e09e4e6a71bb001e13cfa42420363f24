@@ -1,0 +1,6 @@
+package com.spring.core.practical.lifecycle;
+
+public class LifecycleUsingInitanddestroyMethod {
+	
+
+}

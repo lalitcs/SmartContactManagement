@@ -1,0 +1,68 @@
+package com.Core.Java.Collectoin.Lalit.list;
+
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.Vector;
+
+public class VectorDemo {
+	public static void main(String[] args) {
+		Vector<Object> v=new Vector<>();
+		v.add(10);
+		v.add(20);
+		v.add(30);
+		v.add(40);
+		v.add(50);
+		v.add(10);
+		v.add(20);
+		v.add(30);
+		v.add(40);
+		v.add(50);
+		v.add(50);
+		System.out.println(v);
+		//for each
+		//for loop
+		//enumuration
+		//using iterator
+		//stream api 
+		//v.stream().forEach(e->System.out.println(e));
+		/*
+		 * System.out.println("print using iterator"); Iterator<Object> iterator =
+		 * v.iterator(); while (iterator.hasNext()) { Object element = iterator.next();
+		 * System.out.println(element); }
+		 */
+
+		/*
+		 * System.out.println("printing using Enumeration"); Enumeration e=v.elements();
+		 * while(e.hasMoreElements()) { Object i=e.nextElement();
+		 * 
+		 * System.out.println(i);
+		 * 
+		 * }
+		 */
+		
+		/*
+		 * System.out.println("object class array type printing"); Object[] obj=new
+		 * Object[5]; obj[0]=10l; obj[1]=102; obj[1]=102; obj[2]="amarjeet"; for(Object
+		 * ob:obj) { System.out.println(ob); }
+		 * 
+		 * System.out.println("array printing array"); int[] arr=new int[5]; arr[0]=101;
+		 * arr[1]=101; arr[2]=101; for(int i:arr) { System.out.println(i); }
+		 */
+				
+		/*
+		 * System.out.println("Traverse using forEach loop:"); for (Object i : v) {
+		 * System.out.println(i); }
+		 */
+		/*
+		 * System.out.println("travese using for lopp:"); for(int i=0;i<v.size();i++) {
+		 * System.out.println(v.get(i)); }
+		 */
+		/*
+		 * System.out.println("this is your actual collection size"+v.capacity());
+		 * System.out.
+		 * println("this is your size of element that how many you have inserted inside the colection"
+		 * +v.size());
+		 */
+		
+	}
+}
